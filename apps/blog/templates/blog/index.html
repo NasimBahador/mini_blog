@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mini Blog</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+      {% csrf_token %}
+      <p>User Name: <input type="text" name="user_name"></p>
+      <input type="submit" name="submit" value="Login">
+    </form><!-- login -->
+    <form action="/post" method="post">
+      <p>Post new message:</p>
+      <textarea name="post"></textarea>
+      <button type="button" name="submit">Submit post</button>
+    </form>
+    {% if posts %}
+    {% for post in posts %}
+    <p>{{post}}</p>
+    {% endfor %}
+    {% endif %}
+  </body>
+</html>
